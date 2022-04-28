@@ -2,7 +2,7 @@
   "name": "myshell/apple-laravel-authorization-code",
   "license": "MIT",
   "description": "Get User Data with the result code of a apple sign in button",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "apple-laravel-authorization-code","sign in apple","apple","laravel","apple jwt","create jwt apple php","jwt php"
   ],
@@ -11,10 +11,23 @@
       "name": "Isaias Dias",
       "email": "isaias@animus.com.ar",
       "homepage": "https://www.animus.coop"
+    },
+    {
+      "name": "Jorge Solis",
+      "email": "jorgearmando.soliscruz@gmail.com",
+      "homepage": "https://github.com/MyShellSoftwareLab"
+    },
+    {
+      "name": "GussRW",
+      "email": "GussRw1@gmail.com",
+      "homepage": "https://github.com/MyShellSoftwareLab"
     }
   ],
   "require": {
-    "laravel/framework": ">=5.6"
+    "laravel/framework": ">=5.6",
+    "lcobucci/jwt": "^3.2",
+    "firebase/php-jwt": "^4.0",
+    "ext-curl": "*"
   },
   "require-dev": {
     "phpunit/phpunit" : "^7.3",
