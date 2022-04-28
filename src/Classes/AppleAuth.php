@@ -2,35 +2,38 @@
 
 namespace AnimusCoop\AppleTokenAuth\Classes;
 
-use AnimusCoop\AppleTokenAuth\Utils\Jwt;
+use AnimusCoop\AppleTokenAuth\Console\Commands\AppleKeyGenerate;
 use AnimusCoop\AppleTokenAuth\Utils\Call;
 
 
 class AppleAuth
 {
 
-    public $jwt = '', $objJwt = null,$objCall = null;
+    public $jwt = '', $objJwt = null, $objCall = null;
 
     public function __construct($data)
     {
         $initialData = [
-            'client_id' => isset($data['client_id']) ? $data['client_id'] : null,
-            'key_id'    => isset($data['key_id']) ? $data['key_id'] : null,
-            'key'       => isset($data['key']) ? $data['key'] : null,
-            'team_id'   => isset($data['team_id']) ? $data['team_id'] : null,
-            'code'      => isset($data['code']) ? $data['code'] : null
+            'client_id' => config('services.apple.client_id'),
+            'key' => config('services.apple.key'),
+            'key_id' => config('services.apple.key_id'),
+            'team_id' => config('services.apple.team_id'),
+            'code' => isset($data['code']) ? $data['code'] : null
         ];
+
         self::validateData($initialData);
 
-        $objJwtValidation = self::buildObjJwt($initialData);
+        //  $objJwtValidation = self::buildObjJwt($initialData);
         $objCallValidation = self::buildObjCall($initialData);
 
-        $this->objJwt = $objJwtValidation;
+        //  $this->objJwt = $objJwtValidation;
         $this->objCall = $objCallValidation;
 
-        $signjwt = new Jwt($objJwtValidation);
+        //  $signjwt = new Jwt($objJwtValidation);
 
-        $this->jwt = $signjwt->jwtSigned;
+        //$this->jwt = $signjwt->jwtSigned;
+        $this->jwt = AppleKeyGenerate::generateClientSecret(false);
+
     }
 
     public function getJwtSigned()
@@ -40,7 +43,7 @@ class AppleAuth
 
     public function getUserData()
     {
-        $call = new Call($this->jwt,$this->objCall);
+        $call = new Call($this->jwt, $this->objCall);
         $userData = $call->getResponse();
 
         return $userData;

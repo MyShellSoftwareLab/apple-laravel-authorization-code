@@ -8,11 +8,10 @@ class Call {
 
     public function __construct($jwtSigned,$objCall)
     {
-        $this->jwt=$jwtSigned;
+        $this->jwt = $jwtSigned;
         $this->code = $objCall->code;
         $this->client_id = $objCall->client_id;
     }
-
 
     public function getResponse()
     {

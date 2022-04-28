@@ -5,7 +5,7 @@
 # Getting Start!
 
  ```sh
- composer require apple-laravel-authorization-code
+ composer require myshell/apple-laravel-authorization-code
 ```
 
 Add Service Provider in config/app.php
