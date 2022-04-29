@@ -2,7 +2,7 @@
   "name": "myshell/apple-laravel-authorization-code",
   "license": "MIT",
   "description": "Get User Data with the result code of a apple sign in button",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "apple-laravel-authorization-code","sign in apple","apple","laravel","apple jwt","create jwt apple php","jwt php"
   ],
@@ -26,7 +26,7 @@
   "require": {
     "laravel/framework": ">=5.6",
     "lcobucci/jwt": "^3.2",
-    "firebase/php-jwt": "^4.0",
+    "firebase/php-jwt": "^5.0",
     "ext-curl": "*"
   },
   "require-dev": {
