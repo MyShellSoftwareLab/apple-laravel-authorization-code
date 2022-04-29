@@ -40,7 +40,7 @@ Client Secret will be automatically generated and added to the .env file by usin
 
 To manually refresh the Client Secret, please run the following command
 ```
-php artisan socialite:apple --refresh
+php artisan apple:help --refresh
 ```
 
 ## 3. Use
