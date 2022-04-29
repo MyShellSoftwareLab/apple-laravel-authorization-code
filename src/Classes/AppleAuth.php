@@ -4,6 +4,7 @@ namespace AnimusCoop\AppleTokenAuth\Classes;
 
 use AnimusCoop\AppleTokenAuth\Console\Commands\AppleKeyGenerate;
 use AnimusCoop\AppleTokenAuth\Utils\Call;
+use Illuminate\Support\Facades\Storage;
 
 
 class AppleAuth
@@ -52,7 +53,7 @@ class AppleAuth
 
     private static function validateData($data)
     {
-        if (!file_exists($data['key'])) {
+        if (!Storage::disk('local')->exists($data['key'])) {
             self::errorResponse('Key p8 not found');
         }
 
